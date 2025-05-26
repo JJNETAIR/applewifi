@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel - APPLE WIFI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <form method="POST">
+            <input type="text" name="code" placeholder="Voucher Code" required>
+            <input type="date" name="start_date" required>
+            <select name="duration">
+                <option value="15">15 Days</option>
+                <option value="30">30 Days</option>
+            </select>
+            <button type="submit">Save</button>
+        </form>
+        <a href="/export">📁 Export CSV</a> | <a href="/analytics">📊 View Analytics</a>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class="flashes">{% for message in messages %}<li>{{ message }}</li>{% endfor %}</ul>
+          {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
